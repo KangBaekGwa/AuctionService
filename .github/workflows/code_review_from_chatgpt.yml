@@ -1,0 +1,21 @@
+name: ChatGPT Code Review. (Only 'dev' Branch)
+
+permissions:
+  contents: read
+  pull-requests: write
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  code-review:
+    runs-on: ubuntu-latest
+    if: github.base_ref == 'dev' && contains(github.event.pull_request.labels.*.name, 'needs-review')
+    steps:
+      - uses: anc95/ChatGPT-CodeReview@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          LANGUAGE: Korean
+          MODEL: gpt-4o-mini
