@@ -1,0 +1,30 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:mysql://localhost:3333/ItemAuction
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+  data:
+    redis:
+      host: localhost
+      port: 64588
+      password: 'redisdb@1234'
+      Ttl: 3
+  thymeleaf:
+    cache: false
+
+server:
+  port: 9000
+
+JWT:
+  SECRET_KEY: thisIsOnlyTestSecretKey9988001thisIsOnlyTestSecretKey9988001
