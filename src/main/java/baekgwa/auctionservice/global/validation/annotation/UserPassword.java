@@ -13,7 +13,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = { })
-@NotBlank(message = "비밀번호는 필수값 입니다.")
 @Size(min = 8, max = 20, message = "비밀번호는 8자리 ~ 20자리 사이 입니다.")
 @Pattern(regexp = "^(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]).+$",
         message = "비밀번호는 특수문자를 반드시 포함하여야 합니다.")
