@@ -11,8 +11,8 @@ public enum BaseResponseCode {
     SUCCESS(HttpStatus.OK, Boolean.TRUE, 200, "요청 응답 성공"),
 
     //1000 ~ 2000
-    //오류 종류 : 회원 서비스 오류
-    FIND_USER_ERROR_NOT_FIND(HttpStatus.BAD_REQUEST, Boolean.FALSE, 1000, "잘못된 회원 정보"),
+    //오류 종류 : 인증/인가 서비스 오류
+    AUTHENTICATION_LOGIN_FAIL(HttpStatus.BAD_REQUEST, Boolean.FALSE, 1000, "잘못된 회원 정보 입니다."),
 
     //9000 ~ 9999
     //오류 종류 : 공통 에러
