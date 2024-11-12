@@ -14,6 +14,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Entity
 @Getter
@@ -43,15 +44,15 @@ public class User extends BaseEntity {
     private UserStatus status;
 
     @Builder
-    private User(String loginId, String password, String uuid, UserRole role, UserStatus status) {
+    private User(String loginId, String password, String uuid, UserRole role, UserStatus status, PasswordEncoder passwordEncoder) {
         this.loginId = loginId;
-        this.password = password;
+        this.password = passwordEncoder.encode(password);
         this.uuid = uuid;
         this.role = role;
         this.status = status;
     }
 
-    public static User createNewUser(String loginId, String password) {
+    public static User createNewUser(String loginId, String password, PasswordEncoder passwordEncoder) {
         return User
                 .builder()
                 .loginId(loginId)
@@ -59,6 +60,7 @@ public class User extends BaseEntity {
                 .uuid(UUID.randomUUID().toString())
                 .role(UserRole.NONE)
                 .status(UserStatus.ACTIVE)
+                .passwordEncoder(passwordEncoder)
                 .build();
     }
 
