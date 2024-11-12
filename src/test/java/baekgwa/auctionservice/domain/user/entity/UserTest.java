@@ -2,9 +2,11 @@ package baekgwa.auctionservice.domain.user.entity;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.UUID;
+import baekgwa.auctionservice.integration.UserFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 class UserTest {
 
@@ -14,14 +16,15 @@ class UserTest {
         // given
         String loginId = "test1";
         String password = "1234";
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
         // when
-        User newUser = User.createNewUser(loginId, password);
+        User newUser = User.createNewUser(loginId, password, passwordEncoder);
 
         // then
         assertThat(newUser)
-                .extracting("loginId", "password", "role", "status")
-                .contains(loginId, password, UserRole.NONE, UserStatus.ACTIVE);
+                .extracting("loginId", "role", "status")
+                .contains(loginId, UserRole.NONE, UserStatus.ACTIVE);
         assertThat(newUser.getUuid()).isNotNull();
     }
 
@@ -31,14 +34,15 @@ class UserTest {
         // given
         String loginId = "test1";
         String password = "1234";
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
         // when
-        User newUser = createNewAdmin(loginId, password);
+        User newUser = UserFactory.createNewAdmin(loginId, password, passwordEncoder);
 
         // then
         assertThat(newUser)
-                .extracting("loginId", "password", "role", "status")
-                .contains(loginId, password, UserRole.ADMIN, UserStatus.ACTIVE);
+                .extracting("loginId", "role", "status")
+                .contains(loginId, UserRole.ADMIN, UserStatus.ACTIVE);
         assertThat(newUser.getUuid()).isNotNull();
     }
 
@@ -48,15 +52,16 @@ class UserTest {
         // given
         String loginId = "test1";
         String password = "1234";
-        User newUser = User.createNewUser(loginId, password);
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        User newUser = User.createNewUser(loginId, password, passwordEncoder);
 
         // when
         newUser.updateRole(UserRole.BUYER);
 
         // then
         assertThat(newUser)
-                .extracting("loginId", "password", "role", "status")
-                .contains(loginId, password, UserRole.BUYER, UserStatus.ACTIVE);
+                .extracting("loginId", "role", "status")
+                .contains(loginId, UserRole.BUYER, UserStatus.ACTIVE);
         assertThat(newUser.getUuid()).isNotNull();
     }
 
@@ -66,26 +71,16 @@ class UserTest {
         // given
         String loginId = "test1";
         String password = "1234";
-        User newUser = User.createNewUser(loginId, password);
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        User newUser = User.createNewUser(loginId, password, passwordEncoder);
 
         // when
         newUser.updateStatus(UserStatus.BLOCKED);
 
         // then
         assertThat(newUser)
-                .extracting("loginId", "password", "role", "status")
-                .contains(loginId, password, UserRole.NONE, UserStatus.BLOCKED);
+                .extracting("loginId", "role", "status")
+                .contains(loginId, UserRole.NONE, UserStatus.BLOCKED);
         assertThat(newUser.getUuid()).isNotNull();
-    }
-
-    private User createNewAdmin(String loginId, String password) {
-        return User
-                .builder()
-                .loginId(loginId)
-                .password(password)
-                .uuid(UUID.randomUUID().toString())
-                .role(UserRole.ADMIN)
-                .status(UserStatus.ACTIVE)
-                .build();
     }
 }
