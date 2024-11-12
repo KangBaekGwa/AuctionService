@@ -1,8 +1,10 @@
 package baekgwa.auctionservice.global.common.response;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.http.HttpStatus;
 
 public record BaseResponse<T>(
+        @JsonIgnore
         HttpStatus httpStatus,
         Boolean isSuccess,
         String message,
