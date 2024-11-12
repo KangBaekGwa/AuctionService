@@ -1,6 +1,6 @@
 package baekgwa.auctionservice.web.authentication.controller;
 
-import baekgwa.auctionservice.domain.user.service.AuthService;
+import baekgwa.auctionservice.web.authentication.service.AuthService;
 import baekgwa.auctionservice.global.common.response.BaseResponse;
 import baekgwa.auctionservice.web.authentication.dto.RequestAuthDto;
 import lombok.RequiredArgsConstructor;

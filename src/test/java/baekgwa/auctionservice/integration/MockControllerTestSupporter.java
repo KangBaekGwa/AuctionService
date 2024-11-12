@@ -1,7 +1,7 @@
 package baekgwa.auctionservice.integration;
 
 import baekgwa.auctionservice.domain.user.repository.UserRepository;
-import baekgwa.auctionservice.domain.user.service.AuthService;
+import baekgwa.auctionservice.web.authentication.service.AuthService;
 import baekgwa.auctionservice.global.config.SecurityConfig;
 import baekgwa.auctionservice.global.security.CustomUserDetailService;
 import baekgwa.auctionservice.web.authentication.controller.AuthController;
