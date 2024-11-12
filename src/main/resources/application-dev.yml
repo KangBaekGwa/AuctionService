@@ -28,3 +28,9 @@ server:
 
 JWT:
   SECRET_KEY: thisIsOnlyTestSecretKey9988001thisIsOnlyTestSecretKey9988001
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
