@@ -4,17 +4,19 @@ import baekgwa.auctionservice.global.validation.annotation.UserLoginId;
 import baekgwa.auctionservice.global.validation.annotation.UserPassword;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 public class RequestAuthDto {
 
     @Getter
+    @NoArgsConstructor
     public static class Login {
 
         @UserLoginId
-        private final String loginId;
+        private String loginId;
 
         @UserPassword
-        private final String password;
+        private String password;
 
         @Builder
         private Login(String loginId, String password) {
