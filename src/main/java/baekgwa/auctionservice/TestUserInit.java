@@ -30,15 +30,15 @@ public class TestUserInit {
         userRepository.save(adminUser);
 
         User buyerUser = User.createNewUser("buyer1", "!buyer1234", passwordEncoder);
-        adminUser.updateRole(UserRole.BUYER);
+        buyerUser.updateRole(UserRole.BUYER);
         userRepository.save(buyerUser);
 
         User traderUser = User.createNewUser("trader1", "!trader1234", passwordEncoder);
-        adminUser.updateRole(UserRole.TRADER);
+        traderUser.updateRole(UserRole.TRADER);
         userRepository.save(traderUser);
 
         User noneUser = User.createNewUser("none1", "!none1234", passwordEncoder);
-        adminUser.updateRole(UserRole.NONE);
+        noneUser.updateRole(UserRole.NONE);
         userRepository.save(noneUser);
     }
 }
