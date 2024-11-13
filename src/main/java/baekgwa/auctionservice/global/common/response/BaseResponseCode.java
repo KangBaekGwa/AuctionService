@@ -17,7 +17,9 @@ public enum BaseResponseCode {
     //9000 ~ 9999
     //오류 종류 : 공통 에러
     VALIDATION_FAIL_ERROR(HttpStatus.BAD_REQUEST, Boolean.FALSE, 9000, "(exception error 메세지에 따름)"),
-    FAIL(HttpStatus.BAD_REQUEST, Boolean.FALSE, 400, "요청 응답 실패");
+    ACCESS_DENIED(HttpStatus.FORBIDDEN, Boolean.FALSE, 9001, "요청 권한이 부족합니다."),
+    FAIL(HttpStatus.BAD_REQUEST, Boolean.FALSE, 400, "요청 응답 실패"),
+    ;
 
     private final HttpStatus httpStatus;
     private final Boolean isSuccess;
