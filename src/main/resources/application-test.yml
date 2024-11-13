@@ -25,13 +25,9 @@ spring:
       host: localhost
       port: 64588
       password: 'redisdb@1234'
-      Ttl: 3
 
 server:
   port: 9000
-
-JWT:
-  SECRET_KEY: thisIsOnlyTestSecretKey9988001thisIsOnlyTestSecretKey9988001
 
 logging:
   level:
