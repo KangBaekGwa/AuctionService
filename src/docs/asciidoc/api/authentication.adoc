@@ -1,0 +1,15 @@
+[[loginUnion]]
+=== 공통 로그인
+
+==== HTTP Request
+include::{snippets}/authentication/http-request.adoc[]
+include::{snippets}/authentication/request-fields.adoc[]
+include::{snippets}/authentication/request-body.adoc[]
+
+// ==== HTTP Request Header
+// include::{snippets}/Authentication/
+
+==== Http Response
+include::{snippets}/authentication/http-response.adoc[]
+include::{snippets}/authentication/response-fields.adoc[]
+include::{snippets}/authentication/response-body.adoc[]
