@@ -1,5 +1,7 @@
 package baekgwa.auctionservice.global.config;
 
+import baekgwa.auctionservice.global.security.CustomAccessDeniedHandler;
+import baekgwa.auctionservice.global.security.CustomAuthenticationEntryPoint;
 import baekgwa.auctionservice.global.security.CustomUserDetailService;
 import java.util.Arrays;
 import java.util.Collections;
@@ -75,6 +77,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/", "/api/v1/login", "/users/add/**", "/error/**", "/loginProc",
                                 "/css/**", "/favicon.ico/**").permitAll()
+                        .requestMatchers("/docs/index.html").permitAll()
                         .anyRequest().authenticated());
 
         http
@@ -90,6 +93,11 @@ public class SecurityConfig {
                         .sessionFixation().changeSessionId()
                         .maximumSessions(1) //로그인 최대 허용치
                         .maxSessionsPreventsLogin(false)); //로그인 허용치 초과시 새로운 로그인 차단
+
+        http
+                .exceptionHandling(exception -> exception
+                        .accessDeniedHandler(new CustomAccessDeniedHandler())
+                        .authenticationEntryPoint(new CustomAuthenticationEntryPoint()));
 
         return http.build();
     }
