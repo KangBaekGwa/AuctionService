@@ -1,8 +1,8 @@
-package baekgwa.auctionservice.integration;
+package baekgwa.auctionservice.integration.factorymethod;
 
-import baekgwa.auctionservice.domain.user.entity.User;
-import baekgwa.auctionservice.domain.user.entity.UserRole;
-import baekgwa.auctionservice.domain.user.entity.UserStatus;
+import baekgwa.auctionservice.model.user.entity.User;
+import baekgwa.auctionservice.model.user.entity.UserRole;
+import baekgwa.auctionservice.model.user.entity.UserStatus;
 import java.util.UUID;
 import org.springframework.security.crypto.password.PasswordEncoder;
 

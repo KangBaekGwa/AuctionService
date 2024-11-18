@@ -1,4 +1,4 @@
-package baekgwa.auctionservice.domain.user.entity;
+package baekgwa.auctionservice.model.user.entity;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

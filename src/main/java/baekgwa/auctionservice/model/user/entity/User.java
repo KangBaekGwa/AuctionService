@@ -1,6 +1,6 @@
-package baekgwa.auctionservice.domain.user.entity;
+package baekgwa.auctionservice.model.user.entity;
 
-import baekgwa.auctionservice.domain.BaseEntity;
+import baekgwa.auctionservice.model.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

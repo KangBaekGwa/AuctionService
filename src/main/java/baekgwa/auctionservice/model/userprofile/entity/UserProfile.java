@@ -1,7 +1,7 @@
-package baekgwa.auctionservice.domain.userprofile.entity;
+package baekgwa.auctionservice.model.userprofile.entity;
 
-import baekgwa.auctionservice.domain.BaseEntity;
-import baekgwa.auctionservice.domain.user.entity.User;
+import baekgwa.auctionservice.model.BaseEntity;
+import baekgwa.auctionservice.model.user.entity.User;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

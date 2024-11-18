@@ -1,8 +1,8 @@
 package baekgwa.auctionservice;
 
-import baekgwa.auctionservice.domain.user.entity.User;
-import baekgwa.auctionservice.domain.user.entity.UserRole;
-import baekgwa.auctionservice.domain.user.repository.UserRepository;
+import baekgwa.auctionservice.model.user.entity.User;
+import baekgwa.auctionservice.model.user.entity.UserRole;
+import baekgwa.auctionservice.model.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Profile;
