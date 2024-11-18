@@ -1,4 +1,4 @@
-package baekgwa.auctionservice.web.apitest.controller;
+package baekgwa.auctionservice.domain.apitest.controller;
 
 import baekgwa.auctionservice.global.common.exception.CustomException;
 import baekgwa.auctionservice.global.common.response.BaseResponse;

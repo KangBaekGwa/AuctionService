@@ -1,8 +1,8 @@
 package baekgwa.auctionservice.integration;
 
-import baekgwa.auctionservice.domain.user.repository.UserRepository;
-import baekgwa.auctionservice.domain.userprofile.repository.UserProfileRepository;
-import baekgwa.auctionservice.web.authentication.service.AuthService;
+import baekgwa.auctionservice.model.user.repository.UserRepository;
+import baekgwa.auctionservice.model.userprofile.repository.UserProfileRepository;
+import baekgwa.auctionservice.domain.authentication.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
