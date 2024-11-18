@@ -36,7 +36,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public CorsConfigurationSource corsConfigurationSource () {
+    public CorsConfigurationSource corsConfigurationSource() {
         return request -> {
             CorsConfiguration config = new CorsConfiguration();
             config.setAllowedHeaders(Collections.singletonList("*"));
@@ -73,10 +73,11 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-                .cors(corsConfigurer -> corsConfigurer.configurationSource(corsConfigurationSource()))
+                .cors(corsConfigurer -> corsConfigurer.configurationSource(
+                        corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/api/v1/login", "/users/add/**", "/error/**", "/loginProc",
-                                "/css/**", "/favicon.ico/**").permitAll()
+                        .requestMatchers("/", "/error/**", "/favicon.ico/**").permitAll()
+                        .requestMatchers("/api/v1/login", "/api/v1/signup").permitAll()
                         .requestMatchers("/docs/index.html").permitAll()
                         .anyRequest().authenticated());
 

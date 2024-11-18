@@ -1,7 +1,7 @@
 package baekgwa.auctionservice.global.security;
 
-import baekgwa.auctionservice.domain.user.entity.User;
-import baekgwa.auctionservice.domain.user.repository.UserRepository;
+import baekgwa.auctionservice.model.user.entity.User;
+import baekgwa.auctionservice.model.user.repository.UserRepository;
 import baekgwa.auctionservice.global.common.exception.CustomException;
 import baekgwa.auctionservice.global.common.response.BaseResponseCode;
 import lombok.RequiredArgsConstructor;

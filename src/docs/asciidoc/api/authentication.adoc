@@ -2,14 +2,20 @@
 === 공통 로그인
 
 ==== HTTP Request
-include::{snippets}/authentication/http-request.adoc[]
-include::{snippets}/authentication/request-fields.adoc[]
-include::{snippets}/authentication/request-body.adoc[]
-
-// ==== HTTP Request Header
-// include::{snippets}/Authentication/
+include::{snippets}/authentication/loginUnion/http-request.adoc[]
+include::{snippets}/authentication/loginUnion/request-fields.adoc[]
 
 ==== Http Response
-include::{snippets}/authentication/http-response.adoc[]
-include::{snippets}/authentication/response-fields.adoc[]
-include::{snippets}/authentication/response-body.adoc[]
+include::{snippets}/authentication/loginUnion/http-response.adoc[]
+include::{snippets}/authentication/loginUnion/response-fields.adoc[]
+
+[[signUpUnion]]
+=== 공통 회원가입
+
+==== HTTP Request
+include::{snippets}/authentication/signUpUnion/http-request.adoc[]
+include::{snippets}/authentication/signUpUnion/request-fields.adoc[]
+
+==== Http Response
+include::{snippets}/authentication/signUpUnion/http-response.adoc[]
+include::{snippets}/authentication/signUpUnion/response-fields.adoc[]

@@ -1,13 +1,13 @@
-package baekgwa.auctionservice.domain.user.repository;
+package baekgwa.auctionservice.model.user.repository;
 
+import static org.assertj.core.api.Assertions.assertThat;
 
-import baekgwa.auctionservice.domain.user.entity.User;
-import baekgwa.auctionservice.domain.user.entity.UserRole;
-import baekgwa.auctionservice.domain.user.entity.UserStatus;
+import baekgwa.auctionservice.model.user.entity.User;
+import baekgwa.auctionservice.model.user.entity.UserRole;
+import baekgwa.auctionservice.model.user.entity.UserStatus;
 import baekgwa.auctionservice.integration.SpringBootTestSupporter;
-import baekgwa.auctionservice.integration.UserFactory;
+import baekgwa.auctionservice.integration.factorymethod.UserFactory;
 import java.util.Optional;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,7 +25,7 @@ class UserRepositoryTest extends SpringBootTestSupporter {
         Optional<User> findData = userRepository.findByLoginId("test1");
 
         // then
-        Assertions.assertThat(findData).isPresent()
+        assertThat(findData).isPresent()
                 .get()
                 .extracting("loginId", "role", "status")
                 .contains(
@@ -42,6 +42,31 @@ class UserRepositoryTest extends SpringBootTestSupporter {
         Optional<User> findData = userRepository.findByLoginId("test1");
 
         // then
-        Assertions.assertThat(findData).isEmpty();
+        assertThat(findData).isEmpty();
+    }
+
+    @DisplayName("[Success] 로그인 아이디로 중복 확인을 진행합니다.")
+    @Test
+    void existsByLoginId() {
+        // given
+        userRepository.save(UserFactory.createNewAdmin("test1", "!test1234", passwordEncoder));
+
+        // when
+        Boolean result = userRepository.existsByLoginId("test1");
+
+        // then
+        assertThat(result).isTrue();
+    }
+
+    @DisplayName("[Success] 로그인 아이디로 중복 확인을 진행합니다. 없다면 false 가 반환됩니다.")
+    @Test
+    void existsByLoginId2() {
+        // given
+
+        // when
+        Boolean result = userRepository.existsByLoginId("test1");
+
+        // then
+        assertThat(result).isFalse();
     }
 }
