@@ -1,6 +1,6 @@
 package baekgwa.auctionservice.global.security;
 
-import baekgwa.auctionservice.domain.user.entity.User;
+import baekgwa.auctionservice.model.user.entity.User;
 import java.util.ArrayList;
 import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;

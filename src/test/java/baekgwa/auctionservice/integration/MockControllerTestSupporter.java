@@ -1,10 +1,10 @@
 package baekgwa.auctionservice.integration;
 
-import baekgwa.auctionservice.domain.user.repository.UserRepository;
-import baekgwa.auctionservice.web.authentication.service.AuthService;
+import baekgwa.auctionservice.model.user.repository.UserRepository;
+import baekgwa.auctionservice.domain.authentication.service.AuthService;
 import baekgwa.auctionservice.global.config.SecurityConfig;
 import baekgwa.auctionservice.global.security.CustomUserDetailService;
-import baekgwa.auctionservice.web.authentication.controller.AuthController;
+import baekgwa.auctionservice.domain.authentication.controller.AuthController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

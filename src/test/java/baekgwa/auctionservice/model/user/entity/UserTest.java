@@ -1,8 +1,8 @@
-package baekgwa.auctionservice.domain.user.entity;
+package baekgwa.auctionservice.model.user.entity;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import baekgwa.auctionservice.integration.UserFactory;
+import baekgwa.auctionservice.integration.factorymethod.UserFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

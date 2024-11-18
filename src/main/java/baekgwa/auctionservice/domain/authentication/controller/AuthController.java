@@ -1,8 +1,8 @@
-package baekgwa.auctionservice.web.authentication.controller;
+package baekgwa.auctionservice.domain.authentication.controller;
 
-import baekgwa.auctionservice.web.authentication.service.AuthService;
+import baekgwa.auctionservice.domain.authentication.service.AuthService;
 import baekgwa.auctionservice.global.common.response.BaseResponse;
-import baekgwa.auctionservice.web.authentication.dto.RequestAuthDto;
+import baekgwa.auctionservice.domain.authentication.dto.RequestAuthDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
@@ -24,6 +24,14 @@ public class AuthController {
             @Validated @RequestBody RequestAuthDto.Login loginData
     ) {
         authService.login(loginData);
+        return BaseResponse.ok();
+    }
+
+    @PostMapping("/signup")
+    public BaseResponse<Void> signupUnion(
+            @Validated @RequestBody RequestAuthDto.SignUp signUpData
+    ) {
+        authService.signUp(signUpData);
         return BaseResponse.ok();
     }
 }

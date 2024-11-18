@@ -13,6 +13,7 @@ public enum BaseResponseCode {
     //1000 ~ 2000
     //오류 종류 : 인증/인가 서비스 오류
     AUTHENTICATION_LOGIN_FAIL(HttpStatus.BAD_REQUEST, Boolean.FALSE, 1000, "잘못된 회원 정보 입니다."),
+    DUPLICATED_SIGNUP_DATA(HttpStatus.BAD_REQUEST, Boolean.FALSE, 1001, "중복된 회원가입 정보 입니다."),
 
     //9000 ~ 9999
     //오류 종류 : 공통 에러

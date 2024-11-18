@@ -1,4 +1,4 @@
-package baekgwa.auctionservice.domain;
+package baekgwa.auctionservice.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
