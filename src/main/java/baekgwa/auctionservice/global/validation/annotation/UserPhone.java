@@ -14,7 +14,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = { })
-@NotBlank(message = "전화번호는 필수값 입니다.")
 @Size(min = 8, max = 11, message = "전화번호는 8자리에서 11자리까지 입력해야 합니다.")
 @Pattern(regexp = "^[0-9]+$", message = "전화번호는 숫자만 허용됩니다.")
 public @interface UserPhone {

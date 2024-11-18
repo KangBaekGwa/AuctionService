@@ -12,7 +12,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = { })
-@NotBlank(message = "이메일은 필수값 입니다.")
 @Email(message = "잘못된 이메일 형식입니다.")
 public @interface UserEmail {
     String message() default "유효하지 않은 이메일 입니다.";
